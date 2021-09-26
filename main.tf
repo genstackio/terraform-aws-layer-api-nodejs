@@ -27,6 +27,7 @@ module "lambda" {
   timeout     = var.timeout
   memory_size = var.memory_size
   publish     = var.publish
+  layers      = var.layers
   variables = merge(
     local.has_data_bucket ? {
       DATA_BUCKET_NAME = aws_s3_bucket.data[0].bucket,

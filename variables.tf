@@ -76,3 +76,7 @@ variable "lambda_name" {
   type    = string
   default = null
 }
+variable "layers" {
+  type    = list(string)
+  default = []
+}
