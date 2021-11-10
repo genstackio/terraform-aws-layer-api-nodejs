@@ -84,6 +84,7 @@ variable "static_assets" {
   type = list(object({
     path_pattern = string
     id           = string
+    bucket_id    = string
     bucket_name  = string
   }))
   default = []
