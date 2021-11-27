@@ -89,3 +89,7 @@ variable "static_assets" {
   }))
   default = []
 }
+variable "forwarded_headers" {
+  type    = list(string)
+  default = null
+}

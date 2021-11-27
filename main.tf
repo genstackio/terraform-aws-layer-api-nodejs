@@ -7,6 +7,7 @@ module "api" {
   dns                  = var.dns
   dns_zone             = var.dns_zone
   forward_query_string = var.forward_query_string
+  forwarded_headers    = var.forward_headers
   price_class          = var.price_class
   geolocations         = var.geolocations
   static_assets        = var.static_assets
