@@ -93,3 +93,7 @@ variable "forwarded_headers" {
   type    = list(string)
   default = null
 }
+variable "accesslogs_s3_bucket" {
+  type    = string
+  default = null
+}
