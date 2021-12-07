@@ -1,17 +1,22 @@
 module "api" {
   source               = "genstackio/api-lambda/aws"
-  version              = "0.1.14"
+  version              = "0.1.16"
   name                 = var.name
   env                  = var.env
   lambda_arn           = module.lambda.arn
   dns                  = var.dns
   dns_zone             = var.dns_zone
   forward_query_string = var.forward_query_string
-  forwarded_headers    = var.forwarded_headers
   price_class          = var.price_class
   geolocations         = var.geolocations
-  static_assets        = var.static_assets
   accesslogs_s3_bucket = var.accesslogs_s3_bucket
+  functions            = var.functions
+  static_assets        = var.static_assets
+  edge_lambdas         = var.edge_lambdas
+  forwarded_headers    = var.forwarded_headers
+  edge_lambdas_variables = var.edge_lambdas_variables
+  static_assets_functions    = var.static_assets_functions
+  static_assets_edge_lambdas = var.static_assets_edge_lambdas
   providers = {
     aws     = aws
     aws.acm = aws.acm

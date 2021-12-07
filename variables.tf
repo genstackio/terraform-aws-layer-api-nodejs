@@ -60,13 +60,13 @@ variable "geolocations" {
   type    = list(string)
   default = []
 }
-variable "price_class" {
-  type    = string
-  default = "PriceClass_100"
-}
 variable "forward_query_string" {
   type    = bool
   default = null
+}
+variable "price_class" {
+  type    = string
+  default = "PriceClass_100"
 }
 variable "publish" {
   type    = bool
@@ -75,6 +75,44 @@ variable "publish" {
 variable "lambda_name" {
   type    = string
   default = null
+}
+variable "accesslogs_s3_bucket" {
+  type    = string
+  default = null
+}
+variable "edge_lambdas" {
+  type = list(object({
+    event_type = string
+    lambda_arn = string
+    include_body = bool
+  }))
+  default = []
+}
+variable "edge_lambdas_variables" {
+  type    = map(string)
+  default = {}
+}
+variable "static_assets_edge_lambdas" {
+  type = list(object({
+    event_type = string
+    lambda_arn = string
+    include_body = bool
+  }))
+  default = []
+}
+variable "functions" {
+  type = list(object({
+    event_type = string
+    function_arn = string
+  }))
+  default = []
+}
+variable "static_assets_functions" {
+  type = list(object({
+    event_type = string
+    function_arn = string
+  }))
+  default = []
 }
 variable "layers" {
   type    = list(string)
@@ -91,9 +129,5 @@ variable "static_assets" {
 }
 variable "forwarded_headers" {
   type    = list(string)
-  default = null
-}
-variable "accesslogs_s3_bucket" {
-  type    = string
   default = null
 }
