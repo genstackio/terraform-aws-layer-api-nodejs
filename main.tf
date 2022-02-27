@@ -1,6 +1,6 @@
 module "api" {
   source               = "genstackio/api-lambda/aws"
-  version              = "0.2.1"
+  version              = "0.2.2"
   name                 = var.name
   env                  = var.env
   lambda_arn           = module.lambda.arn
@@ -17,6 +17,10 @@ module "api" {
   edge_lambdas_variables = var.edge_lambdas_variables
   static_assets_functions    = var.static_assets_functions
   static_assets_edge_lambdas = var.static_assets_edge_lambdas
+  default_ttl                = var.default_ttl
+  min_ttl                    = var.min_ttl
+  max_ttl                    = var.max_ttl
+  compress                   = var.compress
   providers = {
     aws     = aws
     aws.acm = aws.acm
